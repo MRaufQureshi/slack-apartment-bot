@@ -21,7 +21,7 @@ def get_apartment_listings():
     soup = BeautifulSoup(response.text, "html.parser")
     
     # Example: Find apartment listings (adjust based on actual website structure)
-    apartments = soup.find_all("div", class_="apartment-listing")
+    apartments = soup.find_all("article", class_=".article-list__item--immosearch")
     
     listings = []
     for apt in apartments:
