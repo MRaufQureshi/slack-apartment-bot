@@ -45,9 +45,19 @@ def save_listings(listings):
 # Function to load the last fetched listings from the file
 def load_last_listings():
     if os.path.exists(LISTINGS_FILE):
-        with open(LISTINGS_FILE, "r") as f:
-            return json.load(f)
-    return []
+        try:
+            with open(LISTINGS_FILE, "r") as f:
+                listings = json.load(f)
+                if not listings:  # If the file is empty, return an empty list
+                    return []
+                return listings
+        except json.JSONDecodeError:
+            # If the file is corrupted or invalid, return an empty list
+            return []
+    else:
+        # If the file doesn't exist, return an empty list and create the file
+        save_listings([])  # Create an empty file for future use
+        return []
 
 # Function to send message to Slack
 def send_slack_message(message):
