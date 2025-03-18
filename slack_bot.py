@@ -55,8 +55,6 @@ def load_last_listings():
             # If the file is corrupted or invalid, return an empty list
             return []
     else:
-        # If the file doesn't exist, return an empty list and create the file
-        save_listings([])  # Create an empty file for future use
         return []
 
 # Function to send message to Slack
@@ -75,18 +73,23 @@ def main():
     # Load the previously fetched listings
     last_listings = load_last_listings()
 
-    # Find new listings by comparing current listings to last ones
-    new_listings = [listing for listing in current_listings if listing not in last_listings]
-
-    # If there are new listings, send them to Slack
-    if new_listings:
-        message = "*New Apartment Listings Found! 🎉*\n\n" + "\n\n".join(new_listings)
-        send_slack_message(message)
+    if not last_listings:  # If there are no previous listings (empty or first run)
         # Save the current listings to the file for future comparison
         save_listings(current_listings)
-    else:
-        message = "*🤖 No new listings found.*"
+        message = "*Initial Apartment Listings Scraped and Saved! 🎉*\n\n" + "\n\n".join(current_listings)
         send_slack_message(message)
+    else:
+        # Find new listings by comparing current listings to last ones
+        new_listings = [listing for listing in current_listings if listing not in last_listings]
+
+        if new_listings:
+            message = "*New Apartment Listings Found! 🎉*\n\n" + "\n\n".join(new_listings)
+            send_slack_message(message)
+            # Save the current listings to the file for future comparison
+            save_listings(current_listings)
+        else:
+            message = "*🤖 No new listings found.*"
+            send_slack_message(message)
 
 if __name__ == "__main__":
     main()
