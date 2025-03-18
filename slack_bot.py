@@ -21,7 +21,7 @@ def get_apartment_listings():
     soup = BeautifulSoup(response.text, "html.parser")
     
     # Example: Find apartment listings (adjust based on actual website structure)
-    apartments = soup.find_all("article", class_=".article-list__item--immosearch")
+    apartments = soup.find_all("div", class_="apartment-listing")
     
     listings = []
     for apt in apartments:
@@ -43,10 +43,11 @@ def send_slack_message(message):
 def main():
     apartments = get_apartment_listings()
     if apartments:
-        message = "*New Apartment Listings Found!*\n\n" + "\n\n".join(apartments)
-        send_slack_message(message)
+        message = "*New Apartment Listings Found! 🎉*\n\n" + "\n\n".join(apartments)
     else:
-        print("No new listings found.")
+        message = "*No new listings found. ✅ (Test Message)*"
+
+    send_slack_message(message)
 
 if __name__ == "__main__":
     main()
