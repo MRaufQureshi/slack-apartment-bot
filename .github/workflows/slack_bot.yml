@@ -28,8 +28,12 @@ jobs:
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
         run: python slack_bot.py
 
-      - name: Push changes if any
+      - name: Commit and push changes
         run: |
-          git diff --quiet || git push
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add last_page.html
+          git diff --staged --quiet || git commit -m "Update last_page.html"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,7 +4,7 @@ import subprocess
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-# Slack bot credentials from GitHub Secrets
+# Slack bot credentials
 SLACK_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 SLACK_CHANNEL = os.getenv("SLACK_CHANNEL")
 
@@ -22,20 +22,20 @@ def fetch_html():
         return None
     return response.text
 
-# Function to save the HTML to a file
+# Function to save HTML content to a file
 def save_html(html_content):
     with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html_content)
     print(f"HTML saved to {HTML_FILE}")
 
-# Function to load the last saved HTML
+# Function to load last saved HTML
 def load_last_html():
     if os.path.exists(HTML_FILE):
         with open(HTML_FILE, "r", encoding="utf-8") as f:
             return f.read()
     return None
 
-# Function to send message to Slack
+# Function to send a Slack notification
 def send_slack_message(message):
     client = WebClient(token=SLACK_TOKEN)
     try:
@@ -50,17 +50,18 @@ def commit_and_push_changes():
         subprocess.run(["git", "config", "--global", "user.name", "github-actions"], check=True)
         subprocess.run(["git", "config", "--global", "user.email", "github-actions@github.com"], check=True)
         subprocess.run(["git", "add", HTML_FILE], check=True)
+        subprocess.run(["git", "diff", "--staged", "--quiet"], check=False)  # Check if there are changes
         subprocess.run(["git", "commit", "-m", "Update last_page.html"], check=True)
         subprocess.run(["git", "push"], check=True)
         print("Changes committed and pushed to GitHub.")
-    except subprocess.CalledProcessError as e:
-        print(f"Git command failed: {e}")
+    except subprocess.CalledProcessError:
+        print("No changes detected. Skipping commit.")
 
 # Main function
 def main():
     current_html = fetch_html()
     if current_html is None:
-        return  # Exit if we couldn't fetch the page
+        return  # Exit if fetching failed
 
     last_html = load_last_html()
 
