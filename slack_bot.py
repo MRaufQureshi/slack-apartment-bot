@@ -29,18 +29,20 @@ def get_apartment_listings():
     
     listings = []
     for apt in apartments:
-            link_tag = apt.find("a", href=True)
-            if link_tag:
-                title = link_tag.text.strip()
-                link = "https://www.degewo.de" + link_tag["href"]  # Append base URL
-                listings.append(f"{title}\n{link}")
+        link_tag = apt.find("a", href=True)
+        if link_tag:
+            title = link_tag.text.strip()
+            link = "https://www.degewo.de" + link_tag["href"]  # Append base URL
+            listings.append(f"{title}\n{link}")
     
+    print("Scraped Listings: ", listings)  # Debugging line to check scraped listings
     return listings
 
 # Function to save the current listings to a file
 def save_listings(listings):
     with open(LISTINGS_FILE, "w") as f:
         json.dump(listings, f)
+    print(f"Listings saved to {LISTINGS_FILE}: ", listings)  # Debugging line to check saved listings
 
 # Function to load the last fetched listings from the file
 def load_last_listings():
