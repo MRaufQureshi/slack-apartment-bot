@@ -25,9 +25,11 @@ def get_apartment_listings():
     
     listings = []
     for apt in apartments:
-        title = apt.find("h2").text.strip()
-        link = apt.find("a")["href"]
-        listings.append(f"{title}\n{link}")
+            link_tag = apt.find("a", href=True)
+            if link_tag:
+                title = link_tag.text.strip()
+                link = "https://www.degewo.de" + link_tag["href"]  # Append base URL
+                listings.append(f"{title}\n{link}")
     
     return listings
 
@@ -43,10 +45,11 @@ def send_slack_message(message):
 def main():
     apartments = get_apartment_listings()
     if apartments:
-        message = "*New Apartment Listings Found!*\n\n" + "\n\n".join(apartments)
-        send_slack_message(message)
+        message = "*New Apartment Listings Found! 🎉*\n\n" + "\n\n".join(apartments)
     else:
-        print("No new listings found.")
+        message = "*No new listings found. ✅ (Test Message)*"
+
+    send_slack_message(message)
 
 if __name__ == "__main__":
     main()
