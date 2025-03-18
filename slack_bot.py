@@ -1,5 +1,3 @@
-#response = requests.get(URL, verify=False)
-
 import os
 import requests
 from slack_sdk import WebClient
@@ -17,7 +15,7 @@ HTML_FILE = "last_page.html"
 
 # Function to fetch the full HTML of the page
 def fetch_html():
-    response = requests.get(URL, verify=False)
+    response = requests.get(URL)
     if response.status_code != 200:
         print(f"Error fetching the website. Status code: {response.status_code}")
         return None
