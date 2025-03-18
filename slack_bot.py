@@ -3,6 +3,7 @@ import requests
 import subprocess
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+from bs4 import BeautifulSoup # Import BeautifulSoup for HTML parsing
 
 # Slack bot credentials
 SLACK_TOKEN = os.getenv("SLACK_BOT_TOKEN")
@@ -46,9 +47,20 @@ def load_last_html():
             return f.read()
     return None
 
-# Function to check if keywords exist in the HTML
+# Function to check if keywords exist in the HTML, ignoring the specified div
 def check_for_keywords(html_content):
-    return any(keyword.lower() in html_content.lower() for keyword in KEYWORDS)
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Find and extract the 'search-immo-form' div
+    search_immo_form_div = soup.find("div", class_="search-immo-form")
+    if search_immo_form_div:
+        # Decompose (remove) the search-immo-form div from the soup object
+        search_immo_form_div.decompose()
+
+    # Now, check the remaining content for keywords
+    remaining_content = soup.get_text()
+
+    return any(keyword.lower() in remaining_content.lower() for keyword in KEYWORDS)
 
 # Function to send a Slack notification
 def send_slack_message(message):
