@@ -1,5 +1,6 @@
 import os
 import requests
+import subprocess
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
@@ -25,7 +26,7 @@ def fetch_html():
 def save_html(html_content):
     with open(HTML_FILE, "w", encoding="utf-8") as f:
         f.write(html_content)
-    print("HTML saved to", HTML_FILE)
+    print(f"HTML saved to {HTML_FILE}")
 
 # Function to load the last saved HTML
 def load_last_html():
@@ -43,6 +44,18 @@ def send_slack_message(message):
     except SlackApiError as e:
         print(f"Error sending message: {e.response['error']}")
 
+# Function to commit and push changes to GitHub
+def commit_and_push_changes():
+    try:
+        subprocess.run(["git", "config", "--global", "user.name", "github-actions"], check=True)
+        subprocess.run(["git", "config", "--global", "user.email", "github-actions@github.com"], check=True)
+        subprocess.run(["git", "add", HTML_FILE], check=True)
+        subprocess.run(["git", "commit", "-m", "Update last_page.html"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print("Changes committed and pushed to GitHub.")
+    except subprocess.CalledProcessError as e:
+        print(f"Git command failed: {e}")
+
 # Main function
 def main():
     current_html = fetch_html()
@@ -52,13 +65,15 @@ def main():
     last_html = load_last_html()
 
     if last_html is None:
-        # First-time run: Save the HTML and notify
+        # First-time run: Save the HTML, notify, and push changes to GitHub
         save_html(current_html)
+        commit_and_push_changes()
         send_slack_message("🔍 *Initial website HTML saved!* Monitoring for changes...")
     elif current_html != last_html:
-        # If the HTML has changed, notify and update the saved file
+        # If the HTML has changed, notify, update the file, and push changes
         send_slack_message("🚨 *Website content has changed!* Check for new listings.")
         save_html(current_html)
+        commit_and_push_changes()
     else:
         print("No changes detected.")
 

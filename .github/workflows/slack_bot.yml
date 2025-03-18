@@ -1,27 +1,35 @@
-name: Apartment Slack Bot
+name: Monitor Website Changes
 
 on:
   schedule:
     - cron: "*/5 * * * *"  # Runs every 5 minutes
-  workflow_dispatch:  # Allows manual execution
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  run-bot:
+  monitor:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set Up Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      - name: Install Dependencies
-        run: pip install requests beautifulsoup4 slack_sdk
+      - name: Install dependencies
+        run: pip install requests slack-sdk
 
-      - name: Run Slack Bot
+      - name: Run monitor script
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
-        run: python slack_bot.py
+        run: python script.py
+
+      - name: Push changes if any
+        run: |
+          git diff --quiet || git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
