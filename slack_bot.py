@@ -14,6 +14,17 @@ URL = "https://www.degewo.de/immosuche#openimmo-search-result"
 # File to store the last fetched HTML
 HTML_FILE = "last_page.html"
 
+# Keywords to search in the HTML file
+KEYWORDS = [
+    "Hallesches Ufer",
+    "Hallesches",
+    "Ufer",
+    "Friedrichshain-Kreuzberg",
+    "Friedrichshain",
+    "Kreuzberg",
+    "Friedrichshain Kreuzberg"
+]
+
 # Function to fetch the full HTML of the page
 def fetch_html():
     response = requests.get(URL)
@@ -34,6 +45,10 @@ def load_last_html():
         with open(HTML_FILE, "r", encoding="utf-8") as f:
             return f.read()
     return None
+
+# Function to check if keywords exist in the HTML
+def check_for_keywords(html_content):
+    return any(keyword.lower() in html_content.lower() for keyword in KEYWORDS)
 
 # Function to send a Slack notification
 def send_slack_message(message):
@@ -75,7 +90,14 @@ def main():
         send_slack_message("🚨 *Website content has changed!* Check for new listings.")
         save_html(current_html)
         commit_and_push_changes()
+    
+    # Check for keywords in the HTML and send a Slack message if found
+    if check_for_keywords(current_html):
+        send_slack_message("🚀 *There is a match in the HTML file!* One of the keywords was found.")
+
     else:
+        # Send a message to confirm that the script ran
+        send_slack_message("🔄 Compared it with the file, no changes found until now.")
         print("No changes detected.")
 
 if __name__ == "__main__":
