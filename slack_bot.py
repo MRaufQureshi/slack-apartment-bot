@@ -47,7 +47,7 @@ def main():
     if apartments:
         message = "*New Apartment Listings Found! 🎉*\n\n" + "\n\n".join(apartments)
     else:
-        message = "*No new listings found. ✅ (Test Message)*"
+        message = "*🤖 No new listings found.*"
 
     send_slack_message(message)
 
