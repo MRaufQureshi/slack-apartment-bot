@@ -1139,7 +1139,9 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
 <div class="frame frame-default frame-type-html frame-layout-0 tx-openimmo tx-openimmo-search"
      data-openimmo-bookmarks="0"
      data-openimmo-json-api="https://www.degewo.de/immosuche/search.json?no_cache=1&amp;tx_openimmo_jsonapi%5Baction%5D=bookmark&amp;tx_openimmo_jsonapi%5Bcontroller%5D=JsonApi&amp;cHash=f24dab10e7ba385be3951fce24f90519">
-    <div id="openimmo-flash-messages"></div>
+    <div id="openimmo-flash-messages">
+        
+    </div>
     
 
     <article class="search search-immo-results">
@@ -1908,25 +1910,106 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                             </div>
                                         </div>
                                     </form>
+
+                                    <div class="search-immo-form__abo">
+                                        <form method="post" class="new_subscription js-form-validate" id="new_subscription" action="/immosuche/suche-abonnieren?tx_openimmopro_searchrequest%5Baction%5D=create&amp;tx_openimmopro_searchrequest%5Bcontroller%5D=SearchRequest&amp;cHash=19bd3a08ff03cc09baa9936c85670a5a">
+<div>
+<input type="hidden" name="tx_openimmopro_searchrequest[__referrer][@extension]" value="Openimmo" />
+<input type="hidden" name="tx_openimmopro_searchrequest[__referrer][@controller]" value="Immobilie" />
+<input type="hidden" name="tx_openimmopro_searchrequest[__referrer][@action]" value="search" />
+<input type="hidden" name="tx_openimmopro_searchrequest[__referrer][arguments]" value="YTowOnt9abb0bc682a1d68b83ad0a0d55f4984adbdf7102d" />
+<input type="hidden" name="tx_openimmopro_searchrequest[__referrer][@request]" value="{&quot;@extension&quot;:&quot;Openimmo&quot;,&quot;@controller&quot;:&quot;Immobilie&quot;,&quot;@action&quot;:&quot;search&quot;}53dd4f0226cd686d2566450b5ce9bcce5bc791a4" />
+<input type="hidden" name="tx_openimmopro_searchrequest[__trustedProperties]" value="{&quot;searchFormFields&quot;:1,&quot;marketingType&quot;:1,&quot;objectTypes&quot;:1,&quot;email&quot;:1,&quot;duration&quot;:1}7c9f9f1712f42399a13012540bfdc5fff452f0c0" />
+</div>
+
+                                            <input id="searchFormFields" type="hidden" name="tx_openimmopro_searchrequest[searchFormFields]" value="" />
+                                            <input type="hidden" name="tx_openimmopro_searchrequest[marketingType]" value="MIETE_PACHT" />
+
+                                            
+                                                    <input type="hidden" name="tx_openimmopro_searchrequest[objectTypes]" value="wohnung" />
+                                                
+
+                                            <div class="search-immo-form__row search-immo-form__row--related">
+                                                <div class="search-immo-form__col">
+                                                    <div class="form-group search-immo-form__function">
+                                                        <h3>Abonnieren</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="search-immo-form__row search-immo-form__row--related">
+                                                <div class="form-group search-immo-form__function search-immo-form__function--abo-email-col">
+                                                    <div class="search-immo-form__function--abo-email-row">
+                                                        
+                                                                <input data-msg-email="Geben Sie bitte eine gültige E-Mail-Adresse ein." data-msg-required="Geben Sie bitte Ihre E-Mail-Adresse ein." placeholder="E-Mail-Adresse" class="form-input form-input--abo-email" type="email" name="tx_openimmopro_searchrequest[email]" value="" required="required" />
+                                                            
+
+                                                        <div data-id="duration" data-title="Laufzeit" data-more="" data-chooseclose="true" data-confirmation-target="#subscribe" class="form-multiselect form-multiselect__abo-duration js-multiselect">
+                                                            <button id="duration" type="button" class="form-select form-select--area form-multiselect__toggle">Laufzeit</button>
+                                                            <div class="form-multiselect__container form-multiselect__container--anchor-right form-multiselect__container--duration">
+                                                                <fieldset class="form-group">
+                                                                    <div class="form-toggle-stack">
+                                                                        <label class="form-toggle form-toggle--radio">
+                                                                            <input data-id="duration" data-title="2 Wochen" class="form-toggle__input" type="radio" name="tx_openimmopro_searchrequest[duration]" value="P2W" checked="checked" />
+                                                                            <span class="form-toggle__icon"></span><span class="form-toggle__label">2 Wochen</span>
+                                                                        </label>
+                                                                        <label class="form-toggle form-toggle--radio">
+                                                                            <input data-id="duration" data-title="1 Monat" class="form-toggle__input" type="radio" name="tx_openimmopro_searchrequest[duration]" value="P1M" />
+                                                                            <span class="form-toggle__icon"></span><span class="form-toggle__label">1 Monat</span>
+                                                                        </label>
+                                                                        <label class="form-toggle form-toggle--radio">
+                                                                            <input data-id="duration" data-title="3 Monate" class="form-toggle__input" type="radio" name="tx_openimmopro_searchrequest[duration]" value="P3M" />
+                                                                            <span class="form-toggle__icon"></span><span class="form-toggle__label">3 Monate</span>
+                                                                        </label>
+                                                                        <label class="form-toggle form-toggle--radio">
+                                                                            <input data-id="duration" data-title="6 Monate" class="form-toggle__input" type="radio" name="tx_openimmopro_searchrequest[duration]" value="P6M" />
+                                                                            <span class="form-toggle__icon"></span><span class="form-toggle__label">6 Monate</span>
+                                                                        </label>
+                                                                    </div>
+                                                                </fieldset>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="search-immo-form__row">
+                                                <div class="search-immo-form__col">
+                                                    <fieldset class="form-group search-immo-form__function">
+                                                        <div class="form-toggle-row">
+                                                            <label class="form-toggle form-toggle--check">
+                                                                <input type="checkbox" value="1" name="disclaimer" required="required" data-msg="Bestätigen Sie bitte." class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label--light">Ich bin mit der Verarbeitung meiner Daten einverstanden (<a href="/fileadmin/user_upload/degewo/Unternehmen/Was_uns_wichtig_ist/Datenschutz/Art-13-DSGVO-Info-Interessenten-und-Mieter.pdf" target="_blank">weitere Informationen</a>)</span>
+                                                            </label>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="search-immo-form__row">
+                                                <div class="search-immo-form__col">
+                                                    <div class="form-group search-immo-form__function">
+                                                        <button id="subscribe" type="submit" data-confirm-msg="Are you sure?" data-confirm-active="true" class="btn btn--prim btn--lg btn--immosearch">Diese Suche abonnieren</button>
+                                                        <button data-target=".search-immo-form__abo" type="button" class="btn btn--ghost search-immo-form__overlay-toggle">Schliessen</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-
-                                
-
-                                
-                                    
-                                    <div class="h2" id="openimmo-search-result">25 Treffer gefunden</div>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
 
+                
 
                 
 
                     
 
                     <div class="search__results article-list">
+                        
+                            
+                            <div class="h2 article-list__result" id="openimmo-search-result">25 Treffer gefunden</div>
+                        
+
                         
                             
 
