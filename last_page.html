@@ -2986,6 +2986,8 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
 
     
 
+    
+
 
 </div>
 
@@ -3071,11 +3073,11 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
     </button>
 </div>
 <script type="text/template" id="tpl-cookie-msg">
-    <section class="cookie-msg">
+    <section class="cookie-msg is-fixed">
         <div class="cookie-msg__inner l-container l-gutter">
             <div class="cookie-msg__content">
                 <h2 class="cookie-msg__title">Diese Websites verwendet Cookies</h2>
-                <p class="cookie-msg__text">Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren, Funktionen für soziale Medien anbieten zu können und die Zugriffe auf unsere Website zu analysieren. <a href="/unternehmen/was-uns-wichtig-ist/datenschutz/" class="cookie-msg__link">Weitere Informationen finden Sie hier.</a></p>
+                <p class="cookie-msg__text">Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren, Funktionen für soziale Medien anbieten zu können und die Zugriffe auf unsere Website zu analysieren.&nbsp;<a href="/unternehmen/was-uns-wichtig-ist/datenschutz/" class="cookie-msg__link">Weitere Informationen finden Sie hier.</a></p>
             </div>
             <form id="cookie-consent-form" class="cookie-msg__form">
                 <fieldset class="form-group">
@@ -3084,10 +3086,10 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                             <input type="checkbox" name="cookie-necessary" checked disabled class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label">Notwendig</span>
                         </label>
                         <label class="form-toggle form-toggle--check">
-                            <input id="cookie-marketing" type="checkbox" name="cookie-marketing" class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label">Marketing</span>
+                            <input id="cookie-marketing" type="checkbox" name="cookie-marketing" checked="checked" class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label">Marketing</span>
                         </label>
                         <label class="form-toggle form-toggle--check">
-                            <input id="cookie-services" type="checkbox" name="cookie-services" class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label">Dienste von Drittanbietern</span>
+                            <input id="cookie-services" type="checkbox" name="cookie-services" checked="checked" class="form-toggle__input"><span class="form-toggle__icon"></span><span class="form-toggle__label">Dienste von Drittanbietern</span>
                         </label>
                     </div>
                 </fieldset>
@@ -3097,23 +3099,26 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                 </div>
             </form>
             <button id="cookie-toggle" type="button" aria-expanded="false" aria-controls="cookie-collapsible" class="cookie-msg__toggle"><span class="cookie-msg__toggle-icon">
-                    <svg aria-hidden="true" class="symbol">
-                      <use xlink:href="#i-arrow-down"></use>
-                    </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
+              <svg aria-hidden="true" class="symbol">
+                <use xlink:href="#i-arrow-down"></use>
+              </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
             <div id="cookie-collapsible" class="cookie-msg__collapsible">
                 <section class="accordion js-accordion">
                     <article class="accordion__item">
                         <header class="accordion__header">
-                            <h3 class="accordion__title">Notwendig (9)</h3>
-                            <button type="button" aria-expanded="false" class="accordion__toggle">
+                            <h3 class="accordion__title">Notwendig (8)</h3>
+                            <button type="button" aria-expanded="false" aria-controls="59f8" class="accordion__toggle">
                                 <svg aria-hidden="true" class="symbol accordion__toggle-symbol">
                                     <use xlink:href="#i-arrow-down"></use>
                                 </svg><span class="sr-only">Details anzeigen</span>
                             </button>
                         </header>
-                        <div class="accordion__content">
+                        <div id="59f8" class="accordion__content">
                             <div class="accordion__content-inner">
-                                <p class="cookie-msg__text">Notwendige Cookies helfen dabei, eine Webseite nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und Zugriff auf sichere Bereiche der Webseite ermöglichen. Die Webseite kann ohne diese Cookies nicht richtig funktionieren.</p>
+                                <p class="cookie-msg__text">
+                                    Notwendige Cookies helfen dabei, eine Webseite nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und
+                                    Zugriff auf sichere Bereiche der Webseite ermöglichen. Die Webseite kann ohne diese Cookies nicht richtig funktionieren.
+                                </p>
                                 <div class="cookie-msg__table">
                                     <table>
                                         <thead>
@@ -3175,10 +3180,35 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                             <td>Session</td>
                                             <td>HTTP</td>
                                         </tr>
+                                        <tr>
+                                            <td>mtm_consent_removed</td>
+                                            <td>www.degewo.de</td>
+                                            <td>Wird von Matomo Plattform genutzt, um zu erfassen ob ein User das Matomo Tracking deaktivert hat.</td>
+                                            <td>30 Jahre</td>
+                                            <td>HTTP</td>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <p class="cookie-msg__text"><br>Tracking-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion__item">
+                        <header class="accordion__header">
+                            <h3 class="accordion__title">Marketing (2)</h3>
+                            <button type="button" aria-expanded="false" aria-controls="4312" class="accordion__toggle">
+                                <svg aria-hidden="true" class="symbol accordion__toggle-symbol">
+                                    <use xlink:href="#i-arrow-down"></use>
+                                </svg><span class="sr-only">Details anzeigen</span>
+                            </button>
+                        </header>
+                        <div id="4312" aria-hidden="true" style="" class="accordion__content">
+                            <div class="accordion__content-inner">
+                                <p class="cookie-msg__text">
+                                    Marketing-Cookies werden verwendet, um Besuchern auf Webseiten zu folgen. Die Absicht ist, Anzeigen zu zeigen, die
+                                    relevant und ansprechend für den einzelnen Benutzer sind und daher wertvoller für Publisher und werbetreibende
+                                    Drittparteien sind.
+                                </p>
                                 <div class="cookie-msg__table">
                                     <table>
                                         <thead>
@@ -3192,13 +3222,6 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td>mtm_consent_removed</td>
-                                            <td>www.degewo.de</td>
-                                            <td>Wird von Matomo Plattform genutzt, um zu erfassen ob ein User das Matomo Tracking deaktivert hat.</td>
-                                            <td>30 Jahre</td>
-                                            <td>HTTP</td>
-                                        </tr>
-                                        <tr>
                                             <td>matomo.php</td>
                                             <td>piwik.degewo.de</td>
                                             <td>Wird von Piwik Analytics Platform genutzt, um Seitenabrufe des Besuchers während der Sitzung nachzuverfolgen</td>
@@ -3209,29 +3232,29 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                     </table>
                                 </div>
                             </div>
+                            <p class="cookie-msg__text">Es werden Tracking-Tools von Yumpu verwendet, die nicht unter der Kontrolle von degewo stehen.</p>
                         </div>
                     </article>
                     <article class="accordion__item">
                         <header class="accordion__header">
-                            <h3 class="accordion__title">Marketing (3)</h3>
-                            <button type="button" aria-expanded="false" class="accordion__toggle">
+                            <h3 class="accordion__title">Dienste von Drittanbietern (4)</h3>
+                            <button type="button" aria-expanded="false" aria-controls="66a8" class="accordion__toggle">
                                 <svg aria-hidden="true" class="symbol accordion__toggle-symbol">
                                     <use xlink:href="#i-arrow-down"></use>
                                 </svg><span class="sr-only">Details anzeigen</span>
                             </button>
                         </header>
-                        <div class="accordion__content">
+                        <div id="66a8" class="accordion__content">
                             <div class="accordion__content-inner">
-                                <p class="cookie-msg__text">Marketing-Cookies werden verwendet, um Besuchern auf Webseiten zu folgen. Die Absicht ist, Anzeigen zu zeigen, die relevant und ansprechend für den einzelnen Benutzer sind und daher wertvoller für Publisher und werbetreibende Drittparteien sind.</p>
                                 <div class="cookie-msg__sub">
                                     <label class="form-toggle form-toggle--check cookie-msg__subcheck">
-                                        <input id="cookie-maps" type="checkbox" name="cookie-maps" class="form-toggle__input cookie-msg__marketing"><span class="form-toggle__icon"></span><span class="form-toggle__label">Google Maps</span>
+                                        <input id="cookie-maps" type="checkbox" name="cookie-maps" checked="checked" class="form-toggle__input cookie-msg__services"><span class="form-toggle__icon"></span><span class="form-toggle__label">Google Maps</span>
                                     </label>
                                     <p class="cookie-msg__text">Wird zum Entsperren von Google Maps-Inhalten verwendet.</p>
                                     <button type="button" aria-expanded="false" aria-controls="cookie-collapsible-2" class="cookie-msg__toggle cookie-msg__toggle--sub"><span class="cookie-msg__toggle-icon">
-                                            <svg aria-hidden="true" class="symbol">
-                                              <use xlink:href="#i-arrow-down"></use>
-                                            </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
+                          <svg aria-hidden="true" class="symbol">
+                            <use xlink:href="#i-arrow-down"></use>
+                          </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
                                     <div id="cookie-collapsible-2" class="cookie-msg__collapsible">
                                         <div class="cookie-msg__table">
                                             <table>
@@ -3266,13 +3289,13 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                 </div>
                                 <div class="cookie-msg__sub">
                                     <label class="form-toggle form-toggle--check cookie-msg__subcheck">
-                                        <input id="cookie-youtube" type="checkbox" name="cookie-youtube" class="form-toggle__input cookie-msg__marketing"><span class="form-toggle__icon"></span><span class="form-toggle__label">YouTube</span>
+                                        <input id="cookie-youtube" type="checkbox" name="cookie-youtube" checked="checked" class="form-toggle__input cookie-msg__services"><span class="form-toggle__icon"></span><span class="form-toggle__label">YouTube</span>
                                     </label>
                                     <p class="cookie-msg__text">Wird verwendet, um YouTube-Inhalte zu entsperren.</p>
                                     <button type="button" aria-expanded="false" aria-controls="cookie-collapsible-3" class="cookie-msg__toggle cookie-msg__toggle--sub"><span class="cookie-msg__toggle-icon">
-                                            <svg aria-hidden="true" class="symbol">
-                                              <use xlink:href="#i-arrow-down"></use>
-                                            </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
+                          <svg aria-hidden="true" class="symbol">
+                            <use xlink:href="#i-arrow-down"></use>
+                          </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
                                     <div id="cookie-collapsible-3" class="cookie-msg__collapsible">
                                         <div class="cookie-msg__table">
                                             <table>
@@ -3405,13 +3428,13 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                 </div>
                                 <div class="cookie-msg__sub">
                                     <label class="form-toggle form-toggle--check cookie-msg__subcheck">
-                                        <input id="cookie-immo" type="checkbox" name="cookie-immo" class="form-toggle__input cookie-msg__marketing"><span class="form-toggle__icon"></span><span class="form-toggle__label">Immobilien Scout 24</span>
+                                        <input id="cookie-immo" type="checkbox" name="cookie-immo" checked="checked" class="form-toggle__input cookie-msg__services"><span class="form-toggle__icon"></span><span class="form-toggle__label">Immobilien Scout 24</span>
                                     </label>
                                     <p class="cookie-msg__text">Wird verwendet, um virtuelle Rundgänge von Immobilien Scout 24 zu entsperren.</p>
                                     <button type="button" aria-expanded="false" aria-controls="cookie-collapsible-4" class="cookie-msg__toggle cookie-msg__toggle--sub"><span class="cookie-msg__toggle-icon">
-                                            <svg aria-hidden="true" class="symbol">
-                                              <use xlink:href="#i-arrow-down"></use>
-                                            </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
+                          <svg aria-hidden="true" class="symbol">
+                            <use xlink:href="#i-arrow-down"></use>
+                          </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
                                     <div id="cookie-collapsible-4" class="cookie-msg__collapsible">
                                         <div class="cookie-msg__table">
                                             <table>
@@ -3481,53 +3504,10 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
                                 </div>
                                 <div class="cookie-msg__sub">
                                     <label class="form-toggle form-toggle--check cookie-msg__subcheck">
-                                        <input id="cookie-webcam" type="checkbox" name="cookie-webcam" class="form-toggle__input cookie-msg__marketing"><span class="form-toggle__icon"></span><span class="form-toggle__label">[WEBCAMPROVIDER]</span>
+                                        <input id="cookie-chatbot" type="checkbox" name="cookie-chatbot" checked="checked" class="form-toggle__input cookie-msg__services"><span class="form-toggle__icon"></span><span class="form-toggle__label">Chatbot (Firma boots4you)</span>
                                     </label>
-                                    <p class="cookie-msg__text">Wird verwendet, um [WEBCAMPROVIDER] zu entsperren.</p>
-                                    <button type="button" aria-expanded="false" aria-controls="cookie-collapsible-5" class="cookie-msg__toggle cookie-msg__toggle--sub"><span class="cookie-msg__toggle-icon">
-                                            <svg aria-hidden="true" class="symbol">
-                                              <use xlink:href="#i-arrow-down"></use>
-                                            </svg></span><span data-text-show="Details anzeigen" data-text-hide="Details ausblenden" class="cookie-msg__toggle-text">Details anzeigen</span></button>
-                                    <div id="cookie-collapsible-5" class="cookie-msg__collapsible">
-                                        <div class="cookie-msg__table">
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Anbieter</th>
-                                                    <th scope="col">Zweck</th>
-                                                    <th scope="col">Ablauf</th>
-                                                    <th scope="col">Typ</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>[COOKIENAME]</td>
-                                                    <td>[COOKIEANBIETER]</td>
-                                                    <td>[COOKIEZWECK]</td>
-                                                    <td>[COOKIEABLAUF]</td>
-                                                    <td>[COOKIETYPE]</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    <p class="cookie-msg__text">Der Chatbot der Firma boots4you dient zur Unterstützung von Nutzern dieser Webseite.</p>
                                 </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="accordion__item">
-                        <header class="accordion__header">
-                            <h3 class="accordion__title">Dienste von Drittanbietern (1)</h3>
-                            <button type="button" aria-expanded="false" class="accordion__toggle">
-                                <svg aria-hidden="true" class="symbol accordion__toggle-symbol">
-                                    <use xlink:href="#i-arrow-down"></use>
-                                </svg><span class="sr-only">Details anzeigen</span>
-                            </button>
-                        </header>
-                        <div class="accordion__content">
-                            <div class="accordion__content-inner">
-                                <p class="cookie-msg__text">Es werden Tracking-Tools von Yumpu verwendet, die nicht unter der Kontrolle von degewo stehen.</p>
                             </div>
                         </div>
                     </article>
@@ -3536,24 +3516,29 @@ var TYPO3RsaEncryptionPublicKeyUrl = '\/index.php?eID=RsaPublicKeyGenerationCont
         </div>
     </section>
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDmoN3CEx8Dn51Zz3xIUPCs8Z7wR9r7FVI" type="text/javascript"></script>
-<script src="/typo3conf/ext/openimmo_pro/Resources/Public/JavaScript/HtmlMarker.js" type="text/javascript"></script>
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/markerclusterer.min.js" type="text/javascript"></script>
 <script src="/assets/basic/javascripts/app.js"></script>
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoProBookmarks.min.js"></script>
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoProSearchRequest.min.js"></script>
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/RadiusSearch.min.js"></script>
-<script src="/typo3conf/ext/openimmo/Resources/Public/JavaScript/FlashMessage.js"></script>
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/Openimmo.min.js"></script>
+<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/markerclusterer.min.js"></script>
 
-<script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoCustom.min.js"></script>
 
 
 <script>
 jQuery.extend(jQuery.validator.messages, {
     number: "Bitte geben Sie eine gültige Zahl ein."
 });
-</script>	<!-- Matomo --><script type="text/javascript">var _paq = window._paq || []; _paq.push(['trackPageView']); _paq.push(['disableCookies']); _paq.push(['enableLinkTracking']); (function() { var u="https://piwik.degewo.de/"; _paq.push(['setTrackerUrl', u+'matomo.php']); _paq.push(['setSiteId', '1']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);})();</script><!-- End Matomo Code -->
+</script>    <!-- Matomo --><script type="application/json" data-internal data-controlled-by="cookie-marketing">var _paq = window._paq || []; _paq.push(['trackPageView']); _paq.push(['disableCookies']); _paq.push(['enableLinkTracking']); (function() { var u="https://piwik.degewo.de/"; _paq.push(['setTrackerUrl', u+'matomo.php']); _paq.push(['setSiteId', '1']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);})();</script><!-- End Matomo Code --><script data-external data-controlled-by="cookie-chatbot" id="chat_integration_script" data-src="https://iframe-chatplugin.asw.aareon.com/integration/chat.js" data-tenant="degewo" data-available-languages="de-DE" data-default-language="de-DE" data-bot-id="1152"></script>
 
+
+        <script data-external data-controlled-by="cookie-maps" data-sequential-group="google-maps-deps" data-src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDmoN3CEx8Dn51Zz3xIUPCs8Z7wR9r7FVI&callback=initGoogleMapsConsent"></script>
+        <script data-external data-controlled-by="cookie-maps" data-sequential-group="google-maps-deps" data-src="/typo3conf/ext/openimmo_pro/Resources/Public/JavaScript/HtmlMarker.js"></script>
+        <script data-external data-controlled-by="cookie-maps" data-sequential-group="google-maps-deps" data-src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/markerclusterer.js"></script>
+
+        <script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoProBookmarks.min.js"></script>
+        <script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoProSearchRequest.min.js"></script>
+        <script data-external data-controlled-by="cookie-maps" data-sequential-group="google-maps-deps" data-src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/RadiusSearch.min.js"></script>
+        <script src="/typo3conf/ext/openimmo/Resources/Public/JavaScript/FlashMessage.js"></script>
+        <script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/Openimmo.min.js"></script>
+
+        <script src="/typo3conf/ext/rsmdegewositepackage/Resources/Public/JavaScript/Openimmo/OpenimmoCustom.min.js"></script>
+    
 </body>
 </html>
