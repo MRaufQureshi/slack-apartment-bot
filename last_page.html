@@ -20,14 +20,14 @@
 <meta name="robots" content="index,follow">
 <meta name="apple-mobile-web-app-capable" content="no">
 
-<link rel="stylesheet" href="/assets/styles/fonts.css?1783598863" media="all" nonce="LeGagOnruX5Q_ikJDJhGLsG69gIElfiQVEyJGySbfETtAJPvBrd1Bw">
-<link rel="stylesheet" href="/assets/styles/icon-font.css?1783598863" media="all" nonce="LeGagOnruX5Q_ikJDJhGLsG69gIElfiQVEyJGySbfETtAJPvBrd1Bw">
-<link rel="stylesheet" href="/assets/styles/main.css?1783598863" media="all" nonce="LeGagOnruX5Q_ikJDJhGLsG69gIElfiQVEyJGySbfETtAJPvBrd1Bw">
+<link rel="stylesheet" href="/assets/styles/fonts.css?1784735694" media="all" nonce="KNA15DpfZ8kQ4VWptrJTGdUy1iD0JJ4Qz1Y_tmxGgam0fo_Vzf8YYg">
+<link rel="stylesheet" href="/assets/styles/icon-font.css?1784735694" media="all" nonce="KNA15DpfZ8kQ4VWptrJTGdUy1iD0JJ4Qz1Y_tmxGgam0fo_Vzf8YYg">
+<link rel="stylesheet" href="/assets/styles/main.css?1784735694" media="all" nonce="KNA15DpfZ8kQ4VWptrJTGdUy1iD0JJ4Qz1Y_tmxGgam0fo_Vzf8YYg">
 
 
 
 
-<script src="/assets/scripts/main.js?1783598863" defer="defer" nonce="LeGagOnruX5Q_ikJDJhGLsG69gIElfiQVEyJGySbfETtAJPvBrd1Bw"></script>
+<script src="/assets/scripts/main.js?1784735694" defer="defer" nonce="KNA15DpfZ8kQ4VWptrJTGdUy1iD0JJ4Qz1Y_tmxGgam0fo_Vzf8YYg"></script>
 
 
 
@@ -4753,24 +4753,6 @@ Immobiliensuche
 
 </div>
 
-                <div id="section-wrapper-create-update-date" class="c-section-wrapper r-raster:col-1-12-1
-    c-section-wrapper--publish-date
-    
-    
-    ">
-
-
-        <div class="c-meta   " >
-    <div class="c-meta__inner">
-    </div>
-</div>
-
-
-
-<!--    Must be the last element so that CSS rules continue to work (for example, the first element has a certain distance above it) -->
-
-</div>
-
                 <!--TYPO3SEARCH_begin-->      <div  class="c-section-wrapper r-raster:col-1-12-1
     
     
@@ -4805,7 +4787,7 @@ Immobiliensuche
 
         <form class="c-form c-form--filter-immo-objects "
               id="form-filter-immo-objects"
-            action="/immosuche?cHash&#x3D;6de04b65bd057ffca749806ec57377af"
+            action="/immosuche?cHash&#x3D;8858e2bf495e1916b108e036da0fb809"
             method="post"
             
             >
@@ -4821,6 +4803,7 @@ Immobiliensuche
     <input type="hidden" name="tx_openimmo_immobilie[sortBy]" value="immobilie_flaechen_anzahlZimmer" >
     <input type="hidden" name="tx_openimmo_immobilie[sr][marketingType]" value="MIETE_PACHT" >
     <input type="hidden" name="tx_openimmo_immobilie[sr][objectTypes]" value="wohnung" >
+    <input type="hidden" name="tx_openimmo_immobilie[warmmiete_start]" value="0" >
     <input type="hidden" name="tx_openimmo_immobilie[__trustedProperties]" value="[]7e7abae952f4ec9093f479a8732cf498b80cf271" >
 </div>
 
@@ -5047,7 +5030,7 @@ Immobiliensuche
       
         >
 
-            <option value=""  >Beliebig</option>
+            <option value=""  >beliebig</option>
 
             <option value="charlottenburg-wilmersdorf"  >Charlottenburg-Wilmersdorf</option>
 
@@ -5230,7 +5213,7 @@ Immobiliensuche
         
       
       
-      
+      pattern="[0-9]*" 
       
 
         >
@@ -5280,7 +5263,7 @@ Immobiliensuche
         
       
       
-      
+      pattern="[0-9]*" 
       
 
         >
@@ -5308,7 +5291,7 @@ Immobiliensuche
 
 
             <span class="c-label__text">
-              Warmmiete bis
+              monatliche Warmmiete bis
             </span>
 
 </label>
@@ -5317,31 +5300,24 @@ Immobiliensuche
 
 
         <div class="c-form__input-container " >
-
-
-    <select class="c-form__select "
-            id="rent-to"
-            type=""
-        name="tx_openimmo_immobilie[warmmiete]" 
-        aria-label="LLL:EXT:degewo_sitepackage/Resources/Private/Language/locallang.xlf:tx_openimmo.filter.apartment.rent_to" 
+    <input class="c-form__input "
+           id="rent-to"
+           id="rent-to"
+           type="text"
+           name="tx_openimmo_immobilie[warmmiete_end]" 
+        placeholder="beliebig" 
         
+        aria-describedby="description-rent-to" 
         
         
         
       
+      
+      pattern="[0-9]*" 
+      
+
         >
 
-            <option value=""  >Beliebig</option>
-
-            <option value="0_500"  >bis 500,00 € (warm)</option>
-
-            <option value="0_700"  >bis 700,00 €</option>
-
-            <option value="0_900"  >bis 900,00 €</option>
-
-            <option value="0_1200"  >bis 1.200,00 €</option>
-
-    </select>
 </div>
 
 
